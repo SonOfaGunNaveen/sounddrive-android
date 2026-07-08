@@ -1,5 +1,7 @@
 package com.sounddrive.audio
 
+import com.sounddrive.R
+
 class SoundPackRepository {
 
     fun getDefaultPack(): SoundPack {
@@ -15,28 +17,28 @@ class SoundPackRepository {
                 StemTrack(
                     id = "1",
                     name = "Drums",
-                    fileName = "drums.mp3",
+                    resourceId = R.raw.drums,
                     stemType = StemType.DRUMS
                 ),
 
                 StemTrack(
                     id = "2",
                     name = "Bass",
-                    fileName = "bass.mp3",
+                    resourceId = R.raw.bass,
                     stemType = StemType.BASS
                 ),
 
                 StemTrack(
                     id = "3",
                     name = "Synth",
-                    fileName = "synth.mp3",
+                    resourceId = R.raw.synth,
                     stemType = StemType.SYNTH
                 ),
 
                 StemTrack(
                     id = "4",
                     name = "FX",
-                    fileName = "fx.mp3",
+                    resourceId = R.raw.fx,
                     stemType = StemType.FX
                 )
             )
