@@ -2,10 +2,15 @@ package com.sounddrive
 
 class SoundDriveEngine {
 
+    private val runtime =
+        SoundDriveRuntime()
+
     fun start() {
 
-        println(
-            "SoundDrive Engine Started"
+        runtime.initialize()
+
+        AppLogger.log(
+            "SoundDrive Runtime Initialized"
         )
     }
 }
