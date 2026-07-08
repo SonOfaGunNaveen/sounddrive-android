@@ -6,16 +6,17 @@ import androidx.appcompat.app.AppCompatActivity
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(
-        savedInstanceState: Bundle?
+    savedInstanceState: Bundle?
     ) {
-        super.onCreate(savedInstanceState)
+    super.onCreate(savedInstanceState)
 
-        setContentView(
-            R.layout.activity_main
-        )
+    setContentView(R.layout.activity_main)
 
-        val engine = SoundDriveEngine()
+    val engine =
+        SoundDriveEngine()
 
-        engine.start()
+    engine.start()
+
+    RuntimeDiagnostics.dump()
     }
 }
