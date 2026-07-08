@@ -6,7 +6,7 @@ data class StemTrack(
 
     val name: String,
 
-    val fileName: String,
+    val resourceId: Int,
 
     val stemType: StemType
 )
