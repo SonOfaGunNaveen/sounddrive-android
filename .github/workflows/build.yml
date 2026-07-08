@@ -30,3 +30,9 @@ jobs:
       - name: Build
         run: |
           ./gradle-8.10/bin/gradle assembleDebug
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v4
+        with:
+          name: sounddrive-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
