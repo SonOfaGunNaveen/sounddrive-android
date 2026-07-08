@@ -8,6 +8,9 @@ plugins {
         version "2.0.21"
         apply false
 
+    kotlin("kapt")
+    correctErrorTypes = true
+
     id("com.google.dagger.hilt.android")
         version "2.56.2"
         apply false
