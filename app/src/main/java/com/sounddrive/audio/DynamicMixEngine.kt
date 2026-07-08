@@ -5,27 +5,36 @@ class DynamicMixEngine(
 ) {
 
     fun updateMix(
-        layer: AudioLayer
+        layer: AudioLayer,
+        mode: AudioMode
     ) {
+
+        val profile =
+            AudioProfileRepository
+                .getProfile(mode)
 
         player.setStemVolume(
             StemType.DRUMS,
-            layer.drumsGain
+            layer.drumsGain *
+                    profile.drumsMultiplier
         )
 
         player.setStemVolume(
             StemType.BASS,
-            layer.bassGain
+            layer.bassGain *
+                    profile.bassMultiplier
         )
 
         player.setStemVolume(
             StemType.SYNTH,
-            layer.synthGain
+            layer.synthGain *
+                    profile.synthMultiplier
         )
 
         player.setStemVolume(
             StemType.FX,
-            layer.fxGain
+            layer.fxGain *
+                    profile.fxMultiplier
         )
     }
 }
