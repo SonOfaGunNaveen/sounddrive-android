@@ -6,36 +6,42 @@ import kotlinx.coroutines.flow.StateFlow
 
 class DriveModeManager {
 
-private var currentMode =
-    AudioMode.AMBIENT
+    private val _audioMode =
+        MutableStateFlow(AudioMode.AMBIENT)
 
-fun update(
-    state: DrivingState
-) {
+    val audioMode: StateFlow<AudioMode>
+        get() = _audioMode
 
-    val newMode = when {
+    private var currentMode =
+        AudioMode.AMBIENT
 
-        state.speedKmh < 20f ->
-            AudioMode.AMBIENT
+    fun update(
+        state: DrivingState
+    ) {
 
-        state.speedKmh < 60f ->
-            AudioMode.CRUISE
+        val newMode = when {
 
-        state.speedKmh < 110f ->
-            AudioMode.DYNAMIC
+            state.speedKmh < 20f ->
+                AudioMode.AMBIENT
 
-        state.speedKmh < 150f ->
-            AudioMode.SPORT
+            state.speedKmh < 60f ->
+                AudioMode.CRUISE
 
-        else ->
-            AudioMode.RACE
+            state.speedKmh < 110f ->
+                AudioMode.DYNAMIC
+
+            state.speedKmh < 150f ->
+                AudioMode.SPORT
+
+            else ->
+                AudioMode.RACE
+        }
+
+        if (newMode != currentMode) {
+
+            currentMode = newMode
+
+            _audioMode.value = newMode
+        }
     }
-
-    if (newMode != currentMode) {
-
-        currentMode = newMode
-
-        _audioMode.value = newMode
-    }
-}
 }
