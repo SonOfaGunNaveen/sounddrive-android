@@ -8,5 +8,8 @@ enum class AudioMode {
 
     DYNAMIC,
 
-    SPORT
+    SPORT,
+
+    RACE
 }
+``
