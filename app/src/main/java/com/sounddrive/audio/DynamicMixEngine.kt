@@ -1,31 +1,31 @@
 package com.sounddrive.audio
 
-class DynamicMixEngine {
+class DynamicMixEngine(
+    private val player: MultiTrackPlayer
+) {
 
     fun updateMix(
         layer: AudioLayer
     ) {
 
-        val drumsVolume =
+        player.setStemVolume(
+            StemType.DRUMS,
             layer.drumsGain
+        )
 
-        val bassVolume =
+        player.setStemVolume(
+            StemType.BASS,
             layer.bassGain
+        )
 
-        val synthVolume =
+        player.setStemVolume(
+            StemType.SYNTH,
             layer.synthGain
+        )
 
-        val fxVolume =
+        player.setStemVolume(
+            StemType.FX,
             layer.fxGain
-
-        println(
-            """
-            MIX UPDATE
-            Drum=$drumsVolume
-            Bass=$bassVolume
-            Synth=$synthVolume
-            FX=$fxVolume
-            """.trimIndent()
         )
     }
 }
