@@ -1,17 +1,21 @@
 package com.sounddrive
 
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.sounddrive.R
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(
-        savedInstanceState: Bundle?
-    ) {
-        super.onCreate(savedInstanceState)
+    savedInstanceState: Bundle?
+) {
+    super.onCreate(savedInstanceState)
 
-        val engine = SoundDriveEngine()
+    setContentView(R.layout.activity_main)
 
-        engine.start()
-    }
+    val engine = SoundDriveEngine()
+
+    engine.start()
+}
 }
