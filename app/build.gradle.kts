@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     kotlin("android")
+    kotlin("kapt")
     id("com.google.dagger.hilt.android")
 }
 
@@ -46,6 +47,11 @@ android {
 
         jvmTarget = "17"
     }
+
+    kapt {
+    correctErrorTypes = true
+    }
+
 }
 
 dependencies {
