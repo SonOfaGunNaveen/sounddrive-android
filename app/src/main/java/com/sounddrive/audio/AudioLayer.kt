@@ -8,5 +8,7 @@ data class AudioLayer(
 
     val synthGain: Float = 0f,
 
-    val fxGain: Float = 0f
+    val fxGain: Float = 0f,
+
+    val masterGain: Float = 1f
 )
