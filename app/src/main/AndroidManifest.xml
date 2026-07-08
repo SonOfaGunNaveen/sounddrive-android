@@ -14,8 +14,23 @@
     android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-        android:name=".SoundDriveApp"
-        android:label="SoundDrive">
+    android:name=".SoundDriveApp"
+    android:label="SoundDrive">
+
+   <activity
+    android:name=".MainActivity"
+    android:exported="true">
+
+    <intent-filter>
+        <action android:name="android.intent.action.MAIN"/>
+
+        <category
+            android:name="android.intent.category.LAUNCHER"/>
+    </intent-filter>
+
+    </activity>
+
+</application>
 
         <meta-data
             android:name="com.google.android.gms.car.application"
