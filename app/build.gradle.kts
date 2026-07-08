@@ -25,7 +25,6 @@ android {
     buildTypes {
 
         release {
-
             isMinifyEnabled = false
         }
 
@@ -35,7 +34,6 @@ android {
     }
 
     compileOptions {
-
         sourceCompatibility =
             JavaVersion.VERSION_17
 
@@ -44,14 +42,8 @@ android {
     }
 
     kotlinOptions {
-
         jvmTarget = "17"
     }
-
-    kapt {
-    correctErrorTypes = true
-    }
-
 }
 
 dependencies {
@@ -91,4 +83,8 @@ dependencies {
     kapt(
         "com.google.dagger:hilt-compiler:2.56.2"
     )
+}
+
+kapt {
+    correctErrorTypes = true
 }
