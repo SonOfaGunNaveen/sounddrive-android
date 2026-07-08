@@ -8,5 +8,8 @@ data class DrivingState(
 
     val braking: Float = 0f,
 
-    val corneringForce: Float = 0f
+    val corneringForce: Float = 0f,
+
+    val timestamp: Long =
+        System.currentTimeMillis()
 )
