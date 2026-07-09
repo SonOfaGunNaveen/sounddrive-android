@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity() {
             MappingEngine()
 
         val audioTestManager =
-            AudioTestManager(this)
+            MultiStemTestManager(this)
 
         fun update(mode: SimulationMode) {
 
