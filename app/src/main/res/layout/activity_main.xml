@@ -67,4 +67,16 @@
         android:layout_height="wrap_content"
         android:text="RACE"/>
 
+    <Button
+    android:id="@+id/btnPlay"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="PLAY STEM"/>
+
+    <Button
+    android:id="@+id/btnStop"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="STOP STEM"/>
+
 </LinearLayout>
