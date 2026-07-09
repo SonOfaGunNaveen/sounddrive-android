@@ -14,8 +14,9 @@
     android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
-    android:name=".SoundDriveApp"
-    android:label="SoundDrive">
+    android:label="@string/app_name"
+    android:theme="@style/Theme.SoundDrive">
+
 
    <activity
     android:name=".MainActivity"
