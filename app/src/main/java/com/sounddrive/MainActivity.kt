@@ -6,6 +6,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.sounddrive.audio.AudioMode
 import com.sounddrive.audio.MappingEngine
+import com.sounddrive.audio.AudioTestManager
 import com.sounddrive.telemetry.DrivingState
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
