@@ -49,8 +49,9 @@ class MainActivity : AppCompatActivity() {
             val state =
                 simulationEngine.generate(mode)
 
-            val layer =
-                mappingEngine.map(state)
+            val layer =mappingEngine.map(state)
+
+                audioManager.applyLayer(layer)
 
             audioTestManager.setDrumIntensity(
             layer.drumsGain)
