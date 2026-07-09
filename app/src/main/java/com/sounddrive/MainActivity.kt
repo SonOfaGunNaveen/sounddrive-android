@@ -2,17 +2,13 @@ package com.sounddrive
 
 import android.os.Bundle
 import android.widget.Button
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.sounddrive.audio.AudioMode
 import com.sounddrive.audio.MappingEngine
-import com.sounddrive.audio.AudioTestManager
-import com.sounddrive.telemetry.DrivingState
+import com.sounddrive.audio.MultiStemTestManager
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
-import com.sounddrive.audio.MultiStemTestManager
-
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,7 +23,6 @@ class MainActivity : AppCompatActivity() {
 
         val dashboard =
             DashboardController(
-
                 findViewById(R.id.txtSpeed),
                 findViewById(R.id.txtMode),
                 findViewById(R.id.txtDrums),
@@ -42,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         val mappingEngine =
             MappingEngine()
 
-        val audioTestManager =
+        val audioManager =
             MultiStemTestManager(this)
 
         fun update(mode: SimulationMode) {
@@ -50,12 +45,12 @@ class MainActivity : AppCompatActivity() {
             val state =
                 simulationEngine.generate(mode)
 
-            val layer =mappingEngine.map(state)
+            val layer =
+                mappingEngine.map(state)
 
-                audioManager.applyLayer(layer)
-
-            audioTestManager.setDrumIntensity(
-            layer.drumsGain)
+            audioManager.applyLayer(
+                layer
+            )
 
             val audioMode =
                 when (mode) {
@@ -83,40 +78,48 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(
             R.id.btnCity
         ).setOnClickListener {
-            update(SimulationMode.CITY)
+            update(
+                SimulationMode.CITY
+            )
         }
 
         findViewById<Button>(
             R.id.btnHighway
         ).setOnClickListener {
-            update(SimulationMode.HIGHWAY)
+            update(
+                SimulationMode.HIGHWAY
+            )
         }
 
         findViewById<Button>(
             R.id.btnSport
         ).setOnClickListener {
-            update(SimulationMode.SPORT)
+            update(
+                SimulationMode.SPORT
+            )
         }
 
         findViewById<Button>(
             R.id.btnRace
         ).setOnClickListener {
-            update(SimulationMode.RACE)
+            update(
+                SimulationMode.RACE
+            )
         }
 
         findViewById<Button>(
-        R.id.btnPlay
+            R.id.btnPlay
         ).setOnClickListener {
 
-        audioTestManager.start()
+            audioManager.start()
         }
 
         findViewById<Button>(
             R.id.btnStop
         ).setOnClickListener {
 
-            audioTestManager.stop()
-        }    
+            audioManager.stop()
+        }
 
         update(
             SimulationMode.CITY
