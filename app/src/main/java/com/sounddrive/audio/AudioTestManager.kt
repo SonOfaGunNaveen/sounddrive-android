@@ -10,15 +10,32 @@ class AudioTestManager(
     private val player =
         StemPlayer(context)
 
-    fun playDrums() {
+    private var loaded = false
 
-        player.loadResource(
-            R.raw.drums
-        )
+    fun start() {
 
-        player.setVolume(0.5f)
+        if (!loaded) {
+
+            player.loadResource(
+                R.raw.drums
+            )
+
+            loaded = true
+        }
 
         player.play()
+    }
+
+    fun setDrumIntensity(
+        intensity: Float
+    ) {
+
+        player.setVolume(
+            intensity.coerceIn(
+                0f,
+                1f
+            )
+        )
     }
 
     fun stop() {
