@@ -40,6 +40,9 @@ class MainActivity : AppCompatActivity() {
         val mappingEngine =
             MappingEngine()
 
+        val audioTestManager =
+            AudioTestManager(this)
+
         fun update(mode: SimulationMode) {
 
             val state =
@@ -94,6 +97,20 @@ class MainActivity : AppCompatActivity() {
         ).setOnClickListener {
             update(SimulationMode.RACE)
         }
+
+        findViewById<Button>(
+        R.id.btnPlay
+        ).setOnClickListener {
+
+        audioTestManager.playDrums()
+        }
+
+        findViewById<Button>(
+            R.id.btnStop
+        ).setOnClickListener {
+
+            audioTestManager.stop()
+        }    
 
         update(
             SimulationMode.CITY
