@@ -15,4 +15,5 @@ data class VehicleData(
     val fuelLevel: Float = 0f,
 
     val intakeTemp: Float = 0f
+    
 )
