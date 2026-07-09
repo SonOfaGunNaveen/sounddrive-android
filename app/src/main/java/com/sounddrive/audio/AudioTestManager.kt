@@ -1,6 +1,7 @@
 package com.sounddrive.audio
 
 import android.content.Context
+import com.sounddrive.R
 
 class AudioTestManager(
     context: Context
@@ -12,7 +13,7 @@ class AudioTestManager(
     fun playDrums() {
 
         player.loadResource(
-            com.sounddrive.R.raw.drums
+            R.raw.drums
         )
 
         player.setVolume(0.5f)
