@@ -1,22 +1,25 @@
 package com.sounddrive.telemetry
 
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+
 class DebugTelemetryGenerator {
 
-    private var speed = 0f
-
-    fun nextState(): DrivingState {
-
-        speed += 10f
-
-        if (speed > 160f) {
-            speed = 0f
-        }
-
-        return DrivingState(
-            speedKmh = speed,
-            acceleration = speed / 20f,
-            corneringForce = speed / 50f
+    private val _state =
+        MutableStateFlow(
+            DrivingState()
         )
+
+    val state: StateFlow<DrivingState>
+        get() = _state
+
+    fun simulate() {
+
+        _state.value =
+            DrivingState(
+                speedKmh = 80f,
+                acceleration = 4f,
+                corneringForce = 2f
+            )
     }
 }
-
