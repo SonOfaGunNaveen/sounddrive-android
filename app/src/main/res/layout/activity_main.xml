@@ -2,10 +2,10 @@
 
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:padding="24dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/txtSpeed"
@@ -14,21 +14,57 @@
         android:text="Speed: 0 km/h"/>
 
     <TextView
-        android:id="@+id/txtAcceleration"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Acceleration: 0"/>
-
-    <TextView
-        android:id="@+id/txtCornering"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Cornering: 0"/>
-
-    <TextView
         android:id="@+id/txtMode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Mode: AMBIENT"/>
+
+    <TextView
+        android:id="@+id/txtDrums"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Drums: 0"/>
+
+    <TextView
+        android:id="@+id/txtBass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bass: 0"/>
+
+    <TextView
+        android:id="@+id/txtSynth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Synth: 0"/>
+
+    <TextView
+        android:id="@+id/txtFx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="FX: 0"/>
+
+    <Button
+        android:id="@+id/btnCity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CITY"/>
+
+    <Button
+        android:id="@+id/btnHighway"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="HIGHWAY"/>
+
+    <Button
+        android:id="@+id/btnSport"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SPORT"/>
+
+    <Button
+        android:id="@+id/btnRace"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="RACE"/>
 
 </LinearLayout>
