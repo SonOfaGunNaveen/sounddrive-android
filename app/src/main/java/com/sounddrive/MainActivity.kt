@@ -52,6 +52,9 @@ class MainActivity : AppCompatActivity() {
             val layer =
                 mappingEngine.map(state)
 
+            audioTestManager.setDrumIntensity(
+            layer.drumsGain)
+
             val audioMode =
                 when (mode) {
 
@@ -103,7 +106,7 @@ class MainActivity : AppCompatActivity() {
         R.id.btnPlay
         ).setOnClickListener {
 
-        audioTestManager.playDrums()
+        audioTestManager.start()
         }
 
         findViewById<Button>(
