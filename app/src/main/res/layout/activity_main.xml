@@ -43,6 +43,13 @@
         android:layout_height="wrap_content"
         android:text="FX: 0"/>
 
+
+    <TextView
+    android:id="@+id/txtProfile"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Profile: CITY" />
+    
     <Button
         android:id="@+id/btnCity"
         android:layout_width="match_parent"
