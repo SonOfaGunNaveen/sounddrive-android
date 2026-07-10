@@ -1,19 +1,26 @@
 package com.sounddrive
 
+import android.Manifest
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.sounddrive.audio.AudioMode
 import com.sounddrive.audio.DynamicAudioController
 import com.sounddrive.audio.DynamicStemPlayer
 import com.sounddrive.audio.MappingEngine
 import com.sounddrive.audio.StemDebug
+import com.sounddrive.telemetry.GpsSpeedProvider
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
-import com.sounddrive.audio.SoundDriveAudioEngine
 
 class MainActivity : AppCompatActivity() {
+
+    private val locationRequestCode = 1001
 
     override fun onCreate(
         savedInstanceState: Bundle?
@@ -52,6 +59,38 @@ class MainActivity : AppCompatActivity() {
         stemPlayer.start()
 
         StemDebug.printAll()
+
+        val gpsProvider =
+            GpsSpeedProvider(this)
+
+        if (
+            ContextCompat.checkSelfPermission(
+                this,
+                Manifest.permission.ACCESS_FINE_LOCATION
+            ) == PackageManager.PERMISSION_GRANTED
+        ) {
+
+            gpsProvider.start { speed ->
+
+                runOnUiThread {
+
+                    findViewById<TextView>(
+                        R.id.txtSpeed
+                    ).text =
+                        "Speed: ${speed.toInt()} km/h"
+                }
+            }
+
+        } else {
+
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(
+                    Manifest.permission.ACCESS_FINE_LOCATION
+                ),
+                locationRequestCode
+            )
+        }
 
         fun update(
             mode: SimulationMode
@@ -133,5 +172,28 @@ class MainActivity : AppCompatActivity() {
         update(
             SimulationMode.CITY
         )
+    }
+
+    override fun onRequestPermissionsResult(
+        requestCode: Int,
+        permissions: Array<String>,
+        grantResults: IntArray
+    ) {
+
+        super.onRequestPermissionsResult(
+            requestCode,
+            permissions,
+            grantResults
+        )
+
+        if (
+            requestCode == locationRequestCode &&
+            grantResults.isNotEmpty() &&
+            grantResults[0] ==
+            PackageManager.PERMISSION_GRANTED
+        ) {
+
+            recreate()
+        }
     }
 }
