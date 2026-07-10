@@ -32,28 +32,28 @@ object StemScanner {
 
         return when {
 
-            fileName.startsWith("drums") ->
+            fileName.contains("drums") ->
                 StemCategory.DRUMS
 
-            fileName.startsWith("kick") ->
+            fileName.contains("kick") ->
                 StemCategory.KICK
 
-            fileName.startsWith("bass") ->
+            fileName.contains("bass") ->
                 StemCategory.BASS
 
-            fileName.startsWith("pads") ->
+            fileName.contains("pads") ->
                 StemCategory.PADS
 
-            fileName.startsWith("synth") ->
+            fileName.contains("synth") ->
                 StemCategory.SYNTH
 
-            fileName.startsWith("arp") ->
+            fileName.contains("arp") ->
                 StemCategory.ARP
 
-            fileName.startsWith("fx") ->
+            fileName.contains("fx") ->
                 StemCategory.FX
 
-            fileName.startsWith("vocals") ->
+            fileName.contains("vocals") ->
                 StemCategory.VOCALS
 
             else ->
