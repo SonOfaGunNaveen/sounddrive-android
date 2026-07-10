@@ -4,8 +4,10 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.sounddrive.audio.AudioMode
+import com.sounddrive.audio.DynamicAudioController
+import com.sounddrive.audio.DynamicStemPlayer
 import com.sounddrive.audio.MappingEngine
-import com.sounddrive.audio.MultiStemTestManager
+import com.sounddrive.audio.StemDebug
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
@@ -37,19 +39,34 @@ class MainActivity : AppCompatActivity() {
         val mappingEngine =
             MappingEngine()
 
-        val audioManager =
-            MultiStemTestManager(this)
+        val stemPlayer =
+            DynamicStemPlayer(this)
 
-        fun update(mode: SimulationMode) {
+        val audioController =
+            DynamicAudioController(
+                stemPlayer
+            )
+
+        stemPlayer.start()
+
+        StemDebug.printAll()
+
+        fun update(
+            mode: SimulationMode
+        ) {
 
             val state =
-                simulationEngine.generate(mode)
+                simulationEngine.generate(
+                    mode
+                )
 
             val layer =
-                mappingEngine.map(state)
+                mappingEngine.map(
+                    state
+                )
 
-            audioManager.applyLayer(
-                layer
+            audioController.update(
+                state
             )
 
             val audioMode =
@@ -78,6 +95,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(
             R.id.btnCity
         ).setOnClickListener {
+
             update(
                 SimulationMode.CITY
             )
@@ -86,6 +104,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(
             R.id.btnHighway
         ).setOnClickListener {
+
             update(
                 SimulationMode.HIGHWAY
             )
@@ -94,6 +113,7 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(
             R.id.btnSport
         ).setOnClickListener {
+
             update(
                 SimulationMode.SPORT
             )
@@ -102,23 +122,10 @@ class MainActivity : AppCompatActivity() {
         findViewById<Button>(
             R.id.btnRace
         ).setOnClickListener {
+
             update(
                 SimulationMode.RACE
             )
-        }
-
-        findViewById<Button>(
-            R.id.btnPlay
-        ).setOnClickListener {
-
-            audioManager.start()
-        }
-
-        findViewById<Button>(
-            R.id.btnStop
-        ).setOnClickListener {
-
-            audioManager.stop()
         }
 
         update(
