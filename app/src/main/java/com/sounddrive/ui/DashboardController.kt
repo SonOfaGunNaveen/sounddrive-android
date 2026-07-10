@@ -17,7 +17,9 @@ class DashboardController(
 
     private val synthView: TextView,
 
-    private val fxView: TextView
+    private val fxView: TextView,
+
+    private val profileView: TextView
 ) {
 
     fun update(
@@ -43,5 +45,8 @@ class DashboardController(
 
         fxView.text =
             "FX: ${layer.fxGain}"
+
+        profileView.text =
+            "Profile: $mode"
     }
 }
