@@ -30,7 +30,8 @@ class MainActivity : AppCompatActivity() {
                 findViewById(R.id.txtDrums),
                 findViewById(R.id.txtBass),
                 findViewById(R.id.txtSynth),
-                findViewById(R.id.txtFx)
+                findViewById(R.id.txtFx),
+                findViewById(R.id.txtProfile)
             )
 
         val simulationEngine =
