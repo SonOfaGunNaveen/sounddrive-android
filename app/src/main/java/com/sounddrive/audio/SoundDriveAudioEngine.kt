@@ -3,7 +3,7 @@ package com.sounddrive.audio
 import android.content.Context
 import com.sounddrive.R
 
-class MultiStemTestManager(
+class SoundDriveAudioEngine(
     context: Context
 ) {
 
