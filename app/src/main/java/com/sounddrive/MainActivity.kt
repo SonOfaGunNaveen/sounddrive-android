@@ -11,6 +11,7 @@ import com.sounddrive.audio.StemDebug
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
+import com.sounddrive.audio.SoundDriveAudioEngine
 
 class MainActivity : AppCompatActivity() {
 
