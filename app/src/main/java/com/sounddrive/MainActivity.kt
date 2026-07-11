@@ -78,8 +78,7 @@ class MainActivity : AppCompatActivity() {
 
         StemDebug.printAll()
 
-        val gpsProvider =
-            GpsSpeedProvider(this)
+        
 
         if (
             ContextCompat.checkSelfPermission(
