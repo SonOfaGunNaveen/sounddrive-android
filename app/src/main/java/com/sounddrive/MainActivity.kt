@@ -146,8 +146,18 @@ class MainActivity : AppCompatActivity() {
             R.id.btnCity
         ).setOnClickListener {
 
-            update(
-                SimulationMode.CITY
+                    val initialState =
+            DrivingState()
+        
+        val initialLayer =
+            mappingEngine.map(
+                initialState
+            )
+        
+        dashboard.update(
+            initialState,
+            initialLayer,
+            AudioMode.AMBIENT
             )
         }
 
