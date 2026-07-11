@@ -56,6 +56,8 @@ class MainActivity : AppCompatActivity() {
                 stemPlayer
             )
 
+            var audioStarted = false
+
      //   stemPlayer.start()
 
         StemDebug.printAll()
@@ -95,6 +97,13 @@ class MainActivity : AppCompatActivity() {
         fun update(
             mode: SimulationMode
         ) {
+
+            if (!audioStarted) {
+
+                stemPlayer.start()
+
+            audioStarted = true
+        }
 
             val state =
                 simulationEngine.generate(
