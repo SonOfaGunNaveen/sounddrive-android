@@ -17,6 +17,7 @@ import com.sounddrive.telemetry.GpsSpeedProvider
 import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
+import com.sounddrive.telemetry.DrivingState
 
 class MainActivity : AppCompatActivity() {
 
