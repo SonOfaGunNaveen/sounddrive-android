@@ -21,7 +21,7 @@ import com.sounddrive.telemetry.DrivingState
 import com.sounddrive.telemetry.AccelerationProvider
 import com.sounddrive.telemetry.CorneringProvider
 import com.sounddrive.telemetry.TelemetryFusionEngine
-import com.sounddrive.telemetry.GpsSpeedProvider
+
 
 class MainActivity : AppCompatActivity() {
 
