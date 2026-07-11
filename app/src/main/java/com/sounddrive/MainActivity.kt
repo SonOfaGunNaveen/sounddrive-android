@@ -18,6 +18,10 @@ import com.sounddrive.telemetry.SimulationEngine
 import com.sounddrive.telemetry.SimulationMode
 import com.sounddrive.ui.DashboardController
 import com.sounddrive.telemetry.DrivingState
+import com.sounddrive.telemetry.AccelerationProvider
+import com.sounddrive.telemetry.CorneringProvider
+import com.sounddrive.telemetry.TelemetryFusionEngine
+import com.sounddrive.telemetry.GpsSpeedProvider
 
 class MainActivity : AppCompatActivity() {
 
@@ -58,6 +62,17 @@ class MainActivity : AppCompatActivity() {
             )
 
             var audioStarted = false
+                    val gpsProvider =
+                GpsSpeedProvider(this)
+            
+            val accelerationProvider =
+                AccelerationProvider(this)
+            
+            val corneringProvider =
+                CorneringProvider(this)
+            
+            val telemetryFusionEngine =
+                TelemetryFusionEngine()
 
      //   stemPlayer.start()
 
