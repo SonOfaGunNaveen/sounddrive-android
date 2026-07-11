@@ -90,14 +90,19 @@ class MainActivity : AppCompatActivity() {
 
             gpsProvider.start { speed ->
 
-                runOnUiThread {
-
-                    findViewById<TextView>(
-                        R.id.txtSpeed
-                    ).text =
-                        "Speed: ${speed.toInt()} km/h"
-                }
+            telemetryFusionEngine.updateSpeed(
+                speed
+            )
+        
+            runOnUiThread {
+        
+                findViewById<TextView>(
+                    R.id.txtSpeed
+                ).text =
+                    "Speed: ${speed.toInt()} km/h"
             }
+        }
+
 
         } else {
 
@@ -109,6 +114,19 @@ class MainActivity : AppCompatActivity() {
                 locationRequestCode
             )
         }
+
+                accelerationProvider.start {
+        
+                        telemetryFusionEngine
+                            .updateAcceleration(it)
+                    }
+
+                corneringProvider.start {
+            
+                telemetryFusionEngine
+                    .updateCornering(it)
+            }
+
 
         fun update(
             mode: SimulationMode
