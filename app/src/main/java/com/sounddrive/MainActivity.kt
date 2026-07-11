@@ -56,7 +56,7 @@ class MainActivity : AppCompatActivity() {
                 stemPlayer
             )
 
-        stemPlayer.start()
+     //   stemPlayer.start()
 
         StemDebug.printAll()
 
